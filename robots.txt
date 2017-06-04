@@ -1,0 +1,4 @@
+Sitemap: http://openlab.miad.edu/sitemapindex.xml
+
+User-Agent: *
+Host: openlab.miad.edu

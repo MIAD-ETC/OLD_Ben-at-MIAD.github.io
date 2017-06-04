@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+ <url>
+  <loc>http://openlab.miad.edu/2017/index.html</loc>
+  <lastmod>2017-06-04T21:29:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://openlab.miad.edu/archive.html</loc>
+  <lastmod>2017-06-04T21:29:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://openlab.miad.edu/categories/index.html</loc>
+  <lastmod>2017-06-04T21:29:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://openlab.miad.edu/galleries/index.html</loc>
+  <lastmod>2017-06-04T21:29:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://openlab.miad.edu/index.html</loc>
+  <lastmod>2017-06-04T21:29:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://openlab.miad.edu/listings/index.html</loc>
+  <lastmod>2017-06-04T21:29:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://openlab.miad.edu/posts/first-post.html</loc>
+  <lastmod>2017-06-04T21:29:00Z</lastmod>
+ </url>
+</urlset>
