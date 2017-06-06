@@ -1,4 +1,4 @@
-Sitemap: http://openlab.miad.edu/sitemapindex.xml
+Sitemap: https://ben-at-miad.github.io/sitemapindex.xml
 
 User-Agent: *
-Host: openlab.miad.edu
+Host: ben-at-miad.github.io

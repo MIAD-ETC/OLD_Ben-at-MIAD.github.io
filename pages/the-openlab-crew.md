@@ -22,9 +22,7 @@ All about the lovely people that work in the openlab that can help you.
 
 <a name="ben_available"></a>* These are the hours Ben is available for 'drop in' help, quick questions,  etc. If you'd like to schedule some time with him for some dedicated help, you can signup for a time slot.
 
-## Jenny
 
-## Cody
 
 ## Geoffery
 

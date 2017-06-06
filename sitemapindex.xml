@@ -6,15 +6,15 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
-  <loc>http://openlab.miad.edu/galleries/rss.xml</loc>
-  <lastmod>2017-06-04T21:29:00Z</lastmod>
+  <loc>https://ben-at-miad.github.io/galleries/rss.xml</loc>
+  <lastmod>2017-06-06T13:13:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://openlab.miad.edu/rss.xml</loc>
-  <lastmod>2017-06-04T21:29:00Z</lastmod>
+  <loc>https://ben-at-miad.github.io/rss.xml</loc>
+  <lastmod>2017-06-06T13:13:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://openlab.miad.edu/sitemap.xml</loc>
-  <lastmod>2017-06-06T13:06:00Z</lastmod>
+  <loc>https://ben-at-miad.github.io/sitemap.xml</loc>
+  <lastmod>2017-06-06T13:13:00Z</lastmod>
  </sitemap>
 </sitemapindex>
