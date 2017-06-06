@@ -140,7 +140,11 @@ NAVIGATION_LINKS = {
     DEFAULT_LANG: (
         ("/archive.html", "Archive"),
         #("/categories/index.html", "Tags"),  ## Not sure we want this.
-        ("/rss.xml", "RSS feed"),
+        #("/rss.xml", "RSS feed"),
+        ("/pages/about-the-openlab.html", "About"),
+        ("/pages/rapid-prototyping.html", "Rapid"),
+        ("/pages/immersive-technology.html", "Immersive" ),
+        ("/pages/physical-computing.html", "Phyiscal")
     ),
 }
 
@@ -195,6 +199,7 @@ PAGES = (
     ("pages/*.txt", "pages", "page.tmpl"),
     ("pages/*.html", "pages", "page.tmpl"),
     ("pages/*.md", "pages", "page.tmpl"),
+    #("pages/3Dprinting/*.html", "pages", "page.html"),
 )
 
 
@@ -358,7 +363,7 @@ POSTS_SECTIONS = True
 # Names are determined from the output directory name automatically or the
 # metadata label. Unless overwritten below, names will use title cased and
 # hyphens replaced by spaces.
-# POSTS_SECTION_NAME = {
+# POSTS_SECTION_NAME = {nikola sections for page
 #    DEFAULT_LANG: {
 #        'posts': 'Blog Posts',
 #        'uncategorized': 'Odds and Ends',
@@ -475,7 +480,7 @@ CATEGORY_OUTPUT_FLAT_HIERARCHY = False
 
 # If you do not want to display a category publicly, you can mark it as hidden.
 # The category will not be displayed on the category list page.
-# Category pages will still be generated.
+# Category pages will still be generated.nikola sections for page
 HIDDEN_CATEGORIES = []
 
 # If ENABLE_AUTHOR_PAGES is set to True and there is more than one
@@ -512,7 +517,7 @@ HIDDEN_AUTHORS = ['Guest']
 # Final location for the main blog page and sibling paginated pages is
 # output / TRANSLATION[lang] / INDEX_PATH / index-*.html
 # (translatable)
-#INDEX_PATH = ""
+INDEX_PATH = "blog"
 
 # Optional HTML that displayed on “main” blog index.html files.
 # May be used for a greeting. (translatable)
