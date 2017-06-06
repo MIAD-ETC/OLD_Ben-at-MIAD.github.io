@@ -350,7 +350,7 @@ POSTS_SECTIONS = True
 
 # Associate a description with a section. For use in meta description on
 # section index pages or elsewhere in themes.
-# POSTS_SECTION_DESCRIPTIONS = {
+# POSTS_SECTION_DESCRhttps://getnikola.com/conf.htmlIPTIONS = {
 #     DEFAULT_LANG: {
 #         'how-to': 'Learn how-to things properly with these amazing tutorials.',
 #     },
@@ -517,7 +517,7 @@ HIDDEN_AUTHORS = ['Guest']
 # Final location for the main blog page and sibling paginated pages is
 # output / TRANSLATION[lang] / INDEX_PATH / index-*.html
 # (translatable)
-INDEX_PATH = "blog"
+INDEX_PATH = "posts"
 
 # Optional HTML that displayed on “main” blog index.html files.
 # May be used for a greeting. (translatable)
