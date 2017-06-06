@@ -7,7 +7,7 @@ import time
 # !!  You should edit it to your liking.  !! #
 
 
-# ! Some settings can be different in different languages.
+# ! Some settings can be dihttps://getnikola.com/blog/new-feature-in-nikola-sections.htmlfferent in different languages.
 # ! A comment stating (translatable) is used to denote those.
 # ! There are two ways to specify a translatable setting:
 # ! (a) BLOG_TITLE = "My Blog"
@@ -21,14 +21,16 @@ BLOG_AUTHOR = "Ben Dembroski"  # (translatable)
 BLOG_TITLE = "openlab"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link. Don't forget the protocol (http/https)!
-SITE_URL = "http://openlab.miad.edu/"
+SITE_URL = "https://ben-at-miad.github.io"
 # This is the URL where Nikola's output will be deployed.
 # If not set, defaults to SITE_URL
 # BASE_URL = "http://www.miad.edu/"
 BLOG_EMAIL = "bendembroski@miad.edu"
 BLOG_DESCRIPTION = "All that's going on at MIAD's openlab"  # (translatable)
 
-# Nikola is multilingual!
+# Nikola is multilingual!## Jenny
+
+## Cody
 #
 # Currently supported languages are:
 #
@@ -39,7 +41,7 @@ BLOG_DESCRIPTION = "All that's going on at MIAD's openlab"  # (translatable)
 # bs        Bosnian
 # ca        Catalan
 # cs        Czech [ALTERNATIVELY cz]
-# da        Danish
+# da        Danishhttps://getnikola.com/blog/new-feature-in-nikola-sections.html
 # de        German
 # el        Greek [NOT gr]
 # eo        Esperanto
@@ -58,7 +60,9 @@ BLOG_DESCRIPTION = "All that's going on at MIAD's openlab"  # (translatable)
 # it        Italian
 # ja        Japanese [NOT jp]
 # ko        Korean
-# lt        Lithuanian
+# lt        Lithuanian## Jenny
+
+## Cody
 # nb        Norwegian (Bokmål)
 # nl        Dutch
 # pa        Punjabi
@@ -90,7 +94,7 @@ DEFAULT_LANG = "en"
 
 # What other languages do you have?
 # The format is {"translationcode" : "path/to/translation" }
-# the path will be used as a prefix for the generated pages location
+# the path will be used as a p#d8#TfIkw7ngrefix for the generated pages location
 TRANSLATIONS = {
     DEFAULT_LANG: "",
     # Example for another language:
@@ -110,7 +114,7 @@ TRANSLATIONS_PATTERN = "{path}.{lang}.{ext}"
 # Links for the sidebar / navigation bar.  (translatable)
 # This is a dict.  The keys are languages, and values are tuples.
 #
-# For regular links:
+# For regular links:#d8#TfIkw7ng
 #     ('https://getnikola.com/', 'Nikola Homepage')
 #
 # For submenus:
@@ -135,7 +139,7 @@ TRANSLATIONS_PATTERN = "{path}.{lang}.{ext}"
 NAVIGATION_LINKS = {
     DEFAULT_LANG: (
         ("/archive.html", "Archive"),
-        ("/categories/index.html", "Tags"),
+        #("/categories/index.html", "Tags"),  ## Not sure we want this.
         ("/rss.xml", "RSS feed"),
     ),
 }
@@ -312,7 +316,7 @@ COMPILERS = {
 
 # Writes tag cloud data in form of tag_cloud_data.json.
 # Warning: this option will change its default value to False in v8!
-WRITE_TAG_CLOUD = True
+WRITE_TAG_CLOUD = False
 
 # Generate pages for each section. The site must have at least two sections
 # for this option to take effect. It wouldn't build for just one section.
