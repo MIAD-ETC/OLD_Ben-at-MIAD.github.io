@@ -5,12 +5,12 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1496755334.7631083
+_modified_time = 1496755936.2763822
 _enable_loop = True
 _template_filename = '/home/ben/OL-blog/lib/python3.5/site-packages/nikola/data/themes/base/templates/post_helper.tmpl'
 _template_uri = 'post_helper.tmpl'
 _source_encoding = 'utf-8'
-_exports = ['html_tags', 'html_pager', 'mathjax_script', 'open_graph_metadata', 'twitter_card_information', 'meta_translations']
+_exports = ['mathjax_script', 'twitter_card_information', 'html_pager', 'meta_translations', 'open_graph_metadata', 'html_tags']
 
 
 def _mako_get_namespace(context, name):
@@ -40,23 +40,45 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_html_tags(context,post):
+def render_mathjax_script(context,post):
     __M_caller = context.caller_stack._push_frame()
     try:
-        hidden_tags = context.get('hidden_tags', UNDEFINED)
-        _link = context.get('_link', UNDEFINED)
+        math = _mako_get_namespace(context, 'math')
+        __M_writer = context.writer()
+        __M_writer('\n    ')
+        __M_writer(str(math.math_scripts_ifpost(post)))
+        __M_writer('\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_twitter_card_information(context,post):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        twitter_card = context.get('twitter_card', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
-        if post.tags:
-            __M_writer('        <ul itemprop="keywords" class="tags">\n')
-            for tag in post.tags:
-                if tag not in hidden_tags:
-                    __M_writer('            <li><a class="tag p-category" href="')
-                    __M_writer(str(_link('tag', tag)))
-                    __M_writer('" rel="tag">')
-                    __M_writer(filters.html_escape(str(tag)))
-                    __M_writer('</a></li>\n')
-            __M_writer('        </ul>\n')
+        if twitter_card and twitter_card['use_twitter_cards']:
+            __M_writer('    <meta name="twitter:card" content="')
+            __M_writer(filters.html_escape(str(twitter_card.get('card', 'summary'))))
+            __M_writer('">\n')
+            if 'site:id' in twitter_card:
+                __M_writer('    <meta name="twitter:site:id" content="')
+                __M_writer(str(twitter_card['site:id']))
+                __M_writer('">\n')
+            elif 'site' in twitter_card:
+                __M_writer('    <meta name="twitter:site" content="')
+                __M_writer(str(twitter_card['site']))
+                __M_writer('">\n')
+            if 'creator:id' in twitter_card:
+                __M_writer('    <meta name="twitter:creator:id" content="')
+                __M_writer(str(twitter_card['creator:id']))
+                __M_writer('">\n')
+            elif 'creator' in twitter_card:
+                __M_writer('    <meta name="twitter:creator" content="')
+                __M_writer(str(twitter_card['creator']))
+                __M_writer('">\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -92,14 +114,23 @@ def render_html_pager(context,post):
         context.caller_stack._pop_frame()
 
 
-def render_mathjax_script(context,post):
+def render_meta_translations(context,post):
     __M_caller = context.caller_stack._push_frame()
     try:
-        math = _mako_get_namespace(context, 'math')
+        translations = context.get('translations', UNDEFINED)
+        lang = context.get('lang', UNDEFINED)
+        sorted = context.get('sorted', UNDEFINED)
+        len = context.get('len', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\n    ')
-        __M_writer(str(math.math_scripts_ifpost(post)))
         __M_writer('\n')
+        if len(translations) > 1:
+            for langname in sorted(translations):
+                if langname != lang and ((not post.skip_untranslated) or post.is_translation_available(langname)):
+                    __M_writer('                <link rel="alternate" hreflang="')
+                    __M_writer(str(langname))
+                    __M_writer('" href="')
+                    __M_writer(str(post.permalink(langname)))
+                    __M_writer('">\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -108,12 +139,12 @@ def render_mathjax_script(context,post):
 def render_open_graph_metadata(context,post):
     __M_caller = context.caller_stack._push_frame()
     try:
-        permalink = context.get('permalink', UNDEFINED)
-        url_replacer = context.get('url_replacer', UNDEFINED)
-        abs_link = context.get('abs_link', UNDEFINED)
-        use_open_graph = context.get('use_open_graph', UNDEFINED)
-        lang = context.get('lang', UNDEFINED)
         blog_title = context.get('blog_title', UNDEFINED)
+        permalink = context.get('permalink', UNDEFINED)
+        use_open_graph = context.get('use_open_graph', UNDEFINED)
+        url_replacer = context.get('url_replacer', UNDEFINED)
+        lang = context.get('lang', UNDEFINED)
+        abs_link = context.get('abs_link', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         if use_open_graph:
@@ -151,54 +182,23 @@ def render_open_graph_metadata(context,post):
         context.caller_stack._pop_frame()
 
 
-def render_twitter_card_information(context,post):
+def render_html_tags(context,post):
     __M_caller = context.caller_stack._push_frame()
     try:
-        twitter_card = context.get('twitter_card', UNDEFINED)
+        hidden_tags = context.get('hidden_tags', UNDEFINED)
+        _link = context.get('_link', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
-        if twitter_card and twitter_card['use_twitter_cards']:
-            __M_writer('    <meta name="twitter:card" content="')
-            __M_writer(filters.html_escape(str(twitter_card.get('card', 'summary'))))
-            __M_writer('">\n')
-            if 'site:id' in twitter_card:
-                __M_writer('    <meta name="twitter:site:id" content="')
-                __M_writer(str(twitter_card['site:id']))
-                __M_writer('">\n')
-            elif 'site' in twitter_card:
-                __M_writer('    <meta name="twitter:site" content="')
-                __M_writer(str(twitter_card['site']))
-                __M_writer('">\n')
-            if 'creator:id' in twitter_card:
-                __M_writer('    <meta name="twitter:creator:id" content="')
-                __M_writer(str(twitter_card['creator:id']))
-                __M_writer('">\n')
-            elif 'creator' in twitter_card:
-                __M_writer('    <meta name="twitter:creator" content="')
-                __M_writer(str(twitter_card['creator']))
-                __M_writer('">\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_meta_translations(context,post):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        sorted = context.get('sorted', UNDEFINED)
-        lang = context.get('lang', UNDEFINED)
-        translations = context.get('translations', UNDEFINED)
-        len = context.get('len', UNDEFINED)
-        __M_writer = context.writer()
-        __M_writer('\n')
-        if len(translations) > 1:
-            for langname in sorted(translations):
-                if langname != lang and ((not post.skip_untranslated) or post.is_translation_available(langname)):
-                    __M_writer('                <link rel="alternate" hreflang="')
-                    __M_writer(str(langname))
-                    __M_writer('" href="')
-                    __M_writer(str(post.permalink(langname)))
-                    __M_writer('">\n')
+        if post.tags:
+            __M_writer('        <ul itemprop="keywords" class="tags">\n')
+            for tag in post.tags:
+                if tag not in hidden_tags:
+                    __M_writer('            <li><a class="tag p-category" href="')
+                    __M_writer(str(_link('tag', tag)))
+                    __M_writer('" rel="tag">')
+                    __M_writer(filters.html_escape(str(tag)))
+                    __M_writer('</a></li>\n')
+            __M_writer('        </ul>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -206,6 +206,6 @@ def render_meta_translations(context,post):
 
 """
 __M_BEGIN_METADATA
-{"uri": "post_helper.tmpl", "filename": "/home/ben/OL-blog/lib/python3.5/site-packages/nikola/data/themes/base/templates/post_helper.tmpl", "line_map": {"23": 2, "26": 0, "31": 2, "32": 12, "33": 24, "34": 41, "35": 70, "36": 86, "37": 90, "43": 14, "49": 14, "50": 15, "51": 16, "52": 17, "53": 18, "54": 19, "55": 19, "56": 19, "57": 19, "58": 19, "59": 22, "65": 26, "70": 26, "71": 27, "72": 28, "73": 29, "74": 30, "75": 31, "76": 31, "77": 31, "78": 31, "79": 31, "80": 31, "81": 34, "82": 35, "83": 36, "84": 36, "85": 36, "86": 36, "87": 36, "88": 36, "89": 39, "95": 88, "100": 88, "101": 89, "102": 89, "108": 43, "118": 43, "119": 44, "120": 45, "121": 45, "122": 45, "123": 46, "124": 46, "125": 47, "126": 47, "127": 48, "128": 49, "129": 49, "130": 49, "131": 50, "132": 51, "133": 51, "134": 51, "135": 53, "136": 54, "137": 54, "138": 54, "139": 56, "140": 61, "141": 62, "142": 62, "143": 62, "144": 64, "145": 65, "146": 66, "147": 66, "148": 66, "154": 72, "159": 72, "160": 73, "161": 74, "162": 74, "163": 74, "164": 75, "165": 76, "166": 76, "167": 76, "168": 77, "169": 78, "170": 78, "171": 78, "172": 80, "173": 81, "174": 81, "175": 81, "176": 82, "177": 83, "178": 83, "179": 83, "185": 4, "193": 4, "194": 5, "195": 6, "196": 7, "197": 8, "198": 8, "199": 8, "200": 8, "201": 8, "207": 201}, "source_encoding": "utf-8"}
+{"filename": "/home/ben/OL-blog/lib/python3.5/site-packages/nikola/data/themes/base/templates/post_helper.tmpl", "line_map": {"23": 2, "26": 0, "31": 2, "32": 12, "33": 24, "34": 41, "35": 70, "36": 86, "37": 90, "43": 88, "48": 88, "49": 89, "50": 89, "56": 72, "61": 72, "62": 73, "63": 74, "64": 74, "65": 74, "66": 75, "67": 76, "68": 76, "69": 76, "70": 77, "71": 78, "72": 78, "73": 78, "74": 80, "75": 81, "76": 81, "77": 81, "78": 82, "79": 83, "80": 83, "81": 83, "87": 26, "92": 26, "93": 27, "94": 28, "95": 29, "96": 30, "97": 31, "98": 31, "99": 31, "100": 31, "101": 31, "102": 31, "103": 34, "104": 35, "105": 36, "106": 36, "107": 36, "108": 36, "109": 36, "110": 36, "111": 39, "117": 4, "125": 4, "126": 5, "127": 6, "128": 7, "129": 8, "130": 8, "131": 8, "132": 8, "133": 8, "139": 43, "149": 43, "150": 44, "151": 45, "152": 45, "153": 45, "154": 46, "155": 46, "156": 47, "157": 47, "158": 48, "159": 49, "160": 49, "161": 49, "162": 50, "163": 51, "164": 51, "165": 51, "166": 53, "167": 54, "168": 54, "169": 54, "170": 56, "171": 61, "172": 62, "173": 62, "174": 62, "175": 64, "176": 65, "177": 66, "178": 66, "179": 66, "185": 14, "191": 14, "192": 15, "193": 16, "194": 17, "195": 18, "196": 19, "197": 19, "198": 19, "199": 19, "200": 19, "201": 22, "207": 201}, "source_encoding": "utf-8", "uri": "post_helper.tmpl"}
 __M_END_METADATA
 """

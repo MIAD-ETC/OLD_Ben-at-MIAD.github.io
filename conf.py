@@ -146,7 +146,6 @@ NAVIGATION_LINKS = {
 
 # Name of the theme to use.
 THEME = "bootstrap3"
-
 # Primary color of your theme. This will be used to customize your theme and
 # auto-generate related colors in POSTS_SECTION_COLORS. Must be a HEX value.
 THEME_COLOR = '#5670d4'
@@ -513,7 +512,7 @@ HIDDEN_AUTHORS = ['Guest']
 # Final location for the main blog page and sibling paginated pages is
 # output / TRANSLATION[lang] / INDEX_PATH / index-*.html
 # (translatable)
-INDEX_PATH = "blog"
+#INDEX_PATH = ""
 
 # Optional HTML that displayed on “main” blog index.html files.
 # May be used for a greeting. (translatable)
