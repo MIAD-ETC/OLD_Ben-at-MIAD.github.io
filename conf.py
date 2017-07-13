@@ -82,7 +82,7 @@ BLOG_DESCRIPTION = "All that's going on at MIAD's openlab"  # (translatable)
 # ur        Urdu
 # zh_cn     Chinese (Simplified)
 # zh_tw     Chinese (Traditional)
-#
+#https://sites.google.com/site/jfpayeur/instal-pronterface-in-linux-ubuntu-1604
 # If you want to use Nikola with a non-supported language you have to provide
 # a module containing the necessary translations
 # (cf. the modules at nikola/data/themes/base/messages/).
@@ -138,10 +138,10 @@ TRANSLATIONS_PATTERN = "{path}.{lang}.{ext}"
 
 NAVIGATION_LINKS = {
     DEFAULT_LANG: (
-        ("/archive.html", "Archive"),
+        #("/archive.html", "Archive"),
         #("/categories/index.html", "Tags"),  ## Not sure we want this.
         #("/rss.xml", "RSS feed"),
-        ("/pages/about-the-openlab.html", "About"),
+        ("/posts/", "news"),
         ("/pages/rapid-prototyping.html", "Rapid"),
         ("/pages/immersive-technology.html", "Immersive" ),
         ("/pages/physical-computing.html", "Phyiscal")
